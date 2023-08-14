@@ -38,3 +38,11 @@ func encryptPassword(password string) string {
 	h.Write([]byte(secrt))
 	return hex.EncodeToString(h.Sum([]byte(password)))
 }
+
+func Login(p *model.ParamLogin) (err error) {
+	p.Password = encryptPassword(p.Password)
+	if err = mysql.Login(p); err != nil {
+		return err
+	}
+	return nil
+}

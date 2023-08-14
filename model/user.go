@@ -7,8 +7,10 @@
 package model
 
 type User struct {
+	Id       int    `db:"id"`
+	UserID   int64  `db:"userId"`
 	Username string `db:"username"`
 	Password string `db:"password"`
 	Gender   int    `db:"gender"`
-	UserID   int64  `db:"userId"`
+	Email    string `db:"email"`
 }
